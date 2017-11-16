@@ -1,0 +1,123 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 7 of 12: Attribute Information</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <div ng-repeat="item in vm.fields track by item.id">
+                <a href="" ng-click="vm.DeleteFieldInfoRecord(item.id)">Delete</a>&nbsp;
+                <a href="" ng-click="vm.EditFieldInfoRecord(item.id)">Edit</a>&nbsp;
+                {{item.field}}&nbsp;{{item.description}}&nbsp;{{item.units}}&nbsp;{{item.frequency}}&nbsp;{{item.aggregation}}&nbsp;{{item.nodata}}&nbsp;{{item.dommin}}&nbsp;{{item.dommax}}
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/3k_jWGuyVq0" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+    <hr />
+    <!--
+    <div>
+        <p>
+            <strong>Would you like to add field information for your data set?</strong><br />
+            <input id="Radio1" type="radio" value="Y" name="FieldInfoYN" ng-model="vm.fieldinfoyn" />Yes
+                <input id="Radio2" type="radio" value="N" name="FieldInfoYN" ng-model="vm.fieldinfoyn" />No
+        </p>
+    </div>
+    -->
+    <div>
+      <p>You may enter "N/A" for any field.</p>
+    </div>
+
+    <div>
+        <!-- Info for YES -->
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFIField">Field</label></div>
+            <input name="txtFIField" type="text" required id="txtFIField" value="" size="80%" ng-model="vm.field" ng-maxlength="150"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFIField.$invalid && masterForm.txtFIField.$dirty && !masterForm.txtFIField.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFIField.$error.maxlength">150 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFIDescription">Description</label></div>
+            <input name="txtFIDescription" type="text" required id="txtFIDescription" value="" size="80%" ng-model="vm.description" ng-maxlength="250"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFIDescription.$invalid && masterForm.txtFIDescription.$dirty && !masterForm.txtFIDescription.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFIDescription.$error.maxlength">250 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFIUnits">Units</label></div>
+            <input name="txtFIUnits" type="text" required id="txtFIUnits" value="" size="80%" ng-model="vm.units" ng-maxlength="50"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFIUnits.$invalid && masterForm.txtFIUnits.$dirty && !masterForm.txtFIUnits.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFIUnits.$error.maxlength">50 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFIFrequency">Frequency</label></div>
+            <input name="txtFIFrequency" type="text" required id="txtFIFrequency" value="" size="80%" ng-model="vm.frequency" ng-maxlength="50"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFIFrequency.$invalid && masterForm.txtFIFrequency.$dirty && !masterForm.txtFIFrequency.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFIFrequency.$error.maxlength">50 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFIAggregation">Aggregation</label></div>
+            <input name="txtFIAggregation" type="text" required id="txtFIAggregation" value="" size="80%" ng-model="vm.aggregation" ng-maxlength="50"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFIAggregation.$invalid && masterForm.txtFIAggregation.$dirty && !masterForm.txtFIAggregation.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFIAggregation.$error.maxlength">50 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtFINoData">NODATA</label></div>
+            <input name="txtFINoData" type="text" required id="txtFINoData" value="" size="80%" ng-model="vm.nodata" ng-maxlength="50"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFINoData.$invalid && masterForm.txtFINoData.$dirty && !masterForm.txtFINoData.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtFINoData.$error.maxlength">50 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtdomMin">Min value</label></div>
+            <input name="txtdomMin" type="text" required id="txtdomMin" value="" size="80%" maxlength="30" ng-model="vm.dommin" ng-maxlength="30"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtdomMin.$invalid && masterForm.txtdomMin.$dirty && !masterForm.txtdomMin.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtdomMin.$error.maxlength">30 characters max</span>
+            <br>
+        </div>
+
+        <div class="row001">
+            <div class="rowTitle">
+                <label for="txtdomMax">Max value</label></div>
+            <input name="txtdomMax" type="text" required id="txtdomMax" value="" size="80%" maxlength="30" ng-model="vm.dommax" ng-maxlength="30"><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtdomMax.$invalid && masterForm.txtdomMax.$dirty && !masterForm.txtdomMax.$error.maxlength">Required, mark N/A if needed.</span>
+            <span class="validationError" ng-show="masterForm.txtdomMax.$error.maxlength">30 characters max</span>
+            <br>
+        </div>
+
+        <div ng-show="(vm.editmode === false)">
+            <input class="btn btn-default" id="btnSaveStepAndAddAnother" type="button" value="Save & Add Another" ng-disabled="formempty && !masterForm.$dirty" ng-click="vm.savePageData('11','Again',!masterForm.$invalid)" />
+        </div>
+
+        <div ng-show="(vm.editmode === true)">
+            <input class="btn btn-default" id="btnSaveEdits" type="button" value="Save Edits" ng-click="vm.saveEdits()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="btn btn-default" id="btnCancelEdits" type="button" value="Cancel Edits" ng-click="vm.cancelEdits()" />
+        </div>
+
+    <br />
+    </div>
+    <div ng-show="(vm.editmode === false)">
+    <hr />
+    <div>
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page06')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('07','Quit',!masterForm.$invalid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('07','Next',!masterForm.$invalid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+    </div>
+</div>

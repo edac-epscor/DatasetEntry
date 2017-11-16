@@ -1,0 +1,100 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 6 of 12: Upload File</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <h4><small>Note: filenames must be unique.</small></h4>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/aNlLOwj9bRQ" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <!--
+    <div class="subtitle">Select how you will deliver your files to us at EDAC. </div>
+    <div ng-class="{'validationError': masterForm.deliveryOption.$invalid && (masterForm.deliveryOption.$dirty || vm.submitted===true)}">
+        <div class="groupHeader">
+            <label for="txtAbstract"><strong>How do you want to deliver files</strong></label>
+        </div>
+        <br />
+        <select id="deliveryOption" name="deliveryOption" ng-model="vm.deliverymethod" required>
+            <option value="">Select One</option>
+            <option value="Email">Email </option>
+            <option value="FTP">FTP</option>
+            <option value="Deliver Hard Drive">Deliver Hard Drive</option>
+        </select>
+        <span class="validationError" ng-show="masterForm.deliveryOption.$invalid && (masterForm.deliveryOption.$dirty || vm.submitted===true)">Delivery method is required</span>
+    </div>
+    <div ng-show="vm.deliverymethod=='Email'">
+        <br />
+        Email files can not exceed 10mb. <br />
+        If your files exceed 10mb use the FTP method
+        Email your files to:<br />
+        ESPCoR.Files@edac.unm.edu
+    </div>
+    <div ng-show="vm.deliverymethod=='FTP'">
+        <br />
+        Upload your files to your NM ESPCoR FTP site. <br />
+        Login information below <br />
+
+    </div>
+    <div ng-show="vm.deliverymethod=='Deliver Hard Drive'">
+        <br />
+        Deliver or send hard drive to:<br />
+        MSC01 1110 Attention Bill Hudspeth<br />
+        1 University of New Mexico<br />
+        Albuquerque, NM 87131-0001
+    </div>
+    -->
+
+    <div class="row">
+        <div class="col-md-5" ng-if="filexist">
+            <div class="alert alert-success">
+                <button type="button" class="close" ng-click="vm.tglExist()">
+                    <span>&times;</span>
+                </button>
+                Current uploaded file:{{vm.files.filename}} . Click 'x' to reupload same name file.
+            </div>
+        </div>
+        <div class="col-md-5" ng-if="upsuccess">
+            <div class="alert alert-success">File successfully uploaded.</div>
+        </div>
+        <div class="col-md-5" ng-if="upfailure">
+            <div class="alert alert-danger">Upload failed due to issue with server.</div>
+        </div>
+        <div class="col-md-5" ng-if="nofile">
+            <div class="alert alert-warning">No file selected.</div>
+        </div>
+        <div class="col-md-5" ng-if="dupfile">
+            <div class="alert alert-warning">
+                <!--<button type="button" class="close" ng-click="vm.tglExist()">
+                    <span>&times;</span>
+                </button>-->
+                Filename exists. Please rename file.
+            </div>
+        </div>
+        <div class="col-md-5" ng-if="attemptingup">
+            <div class="alert alert-warning">Attempting upload...</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"><input type="file" name="uploadfile" file-model= "myFile" ng-model="filename" valid-file type="file"/></div>
+        <div class="col-md-3">
+            <button ng-click="uploadFile()" required>Upload</button><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-if="!upsuccess && masterForm.$invalid">File is required.</span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+
+    </div>
+
+    <hr />
+    <div>
+    <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page05')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="!filexist && !upsuccess" ng-click="vm.savePageData('06','Quit',masterForm.$valid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="!filexist && !upsuccess" ng-click="vm.savePageData('06','Next',masterForm.$valid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+</div>

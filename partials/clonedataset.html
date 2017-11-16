@@ -1,0 +1,12 @@
+<div>
+    <div>
+        Select the dataset to clone:&nbsp;<select name="so" id="so" ng-options="clone.datasetname for clone in vm.theuserdatasetsforcloning" ng-model="vm.datasettoclone" ng-change="vm.checkfordatasetselected()">
+        <option>sdjfhskjfhs</option>
+        </select>
+    </div> 
+    <hr />
+    <div>
+        <input type="submit" value="Clone Selected Data Set" ng-disabled="(vm.datasetIsSelected === 'N')" ng-click="vm.cloneSelectedDataset(vm.datasettoclone.id)" />
+        <input type="submit" value="Cancel Clone" ng-click="vm.cancelClone()" />
+    </div>
+</div>

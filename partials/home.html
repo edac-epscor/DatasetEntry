@@ -1,0 +1,50 @@
+<h2>Login</h2>
+<div class="form-group" ng-class="{'validationError': masterForm.txtUserName.$invalid && masterForm.txtUserName.$dirty}">
+
+			<div class="registration_formfield_row02">
+                <div class="tableless-formm-left">
+                    <label class="control-label" for="txtUserName">User Name</label>
+                </div>
+                <div class="tableless-formm-right">
+                        <input class="form-control" id="txtUserName" name="txtUserName" type="text" placeholder="User name (required)" ng-model="ac.credentials.username" required />
+    <span class="validationError" ng-show="masterForm.txtUserName.$invalid && masterForm.txtUserName.$dirty">Username is required</span>
+                </div>
+            </div>
+</div>
+
+<div class="form-group" ng-class="{'validationError': masterForm.txtPassword.$invalid && masterForm.txtPassword.$dirty}">
+
+			<div class="registration_formfield_row02">
+                <div class="tableless-formm-left">
+                    <label class="control-label" for="txtPassword">Password</label>
+                </div>
+                <div class="tableless-formm-right">
+                        <input class="form-control" id="txtPassword" name="txtPassword" type="text" placeholder="Password (required)" ng-model="ac.credentials.password" required />
+    <span class="validationError" ng-show="masterForm.txtPassword.$invalid && masterForm.txtPassword.$dirty">Password is required</span>
+                </div>
+            </div>
+</div>
+
+
+<div class="form-group">
+    <!--
+            <input class="btn btn-primary" ng-disabled="masterForm.$invalid" id="Submit" type="submit" value="Submit" ng-click="ac.logmein()" />
+             -->
+    <br />
+    <div>
+    <input class="btn btn-primary" id="Submit2" type="submit" value="Login" ng-click="ac.logmein2()" />
+    </div>
+<!--
+<div>
+
+    <br />
+    <input class="btn btn-primary" id="newUser" type="submit" value="Create New User" ng-click="ac.newUser()" />
+    <br />
+    <br />
+</div>
+-->
+</div>
+<div>
+    <span class="validationError">{{ac.failedlogin}}</span>
+</div>
+

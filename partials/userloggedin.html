@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-md-6"><h4>Your Research Data</h4></div>
+    <div class="col-md-6"><h4 class="pull-right">Welcome {{dsc.theuserfirstname}} {{dsc.theuserlastname}}</h4></div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-default btn-block" value="Add New Data Set" ng-click="dsc.addnewdataset()" />
+    </div>
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-default btn-block" value="Clone Data Set" ng-click="dsc.clonedataset()" ng-show="dsc.existingdatasets>0" />
+    </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-6"><h5>Data Sets Uploaded</h5></div>
+  <div class="col-md-4"><h5 class="pull-right">Collection Total</h5></div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><h3>{{dsc.dSetLength}} <small>Data Sets</small></h3></div>
+  <div class="col-md-4"><h3 class="pull-right">{{dsc.existingdatasets}} <small>Collections</small></h3></div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <div class="col-md-4" style="width:400; height:300">
+    <canvas id="pie" height="{{height_chart}}" class="chart chart-pie pull-left" chart-data="data" chart-labels="labels" chart-options="options">
+    </canvas>
+  </div>
+  <div class="col-md-4">
+      <span class="pull-right">
+          <div ng-bind-html="chartLegend" id="chartLegend"></div>
+      </span>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<br />
+<div class="col-md-4">
+    <br />
+    <br />
+
+    <div ng-repeat="coll in dsc.userdatasets">
+
+        <button type="button" class="btn btn-info btn-block btn-lg" ng-click="dsc.showdataset(coll.collectiontitle)">{{coll.collectiontitle}} : {{coll.datasetz.length}}</button>
+        <br />
+    </div>
+</div>
+<div class="col-md-4"  ng-if="dsc.dsetzr.length >= 1">
+    <br />
+    <br />
+    <p id="redText">Rejected Datasets!</p>
+    <table class="table table-bordered" id="rejectedTable">
+        <thead>
+            <tr>
+                <th class="titleLeft" id="redText">Dataset</th>
+                <!--<th id="redText">Date Rejected</th>-->
+                <th id="redText">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="ds in dsc.dsetzr | itemsPerPage: 10">
+                <td id="redText">{{ds.datasettitle}}{{dsc.datasetid}}</td>
+
+                <td><a href="" ng-click="dsc.viewedit(ds.datasetid,ds.statusid)"  id="redText">Edit</a></td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <div class="text-center">
+                        <dir-pagination-controls></dir-pagination-controls>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

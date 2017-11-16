@@ -1,0 +1,59 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 11 of 12: License Information</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            The NM EPSCoR data policy has adopted the Creative Commons v4 CC-BY license.
+            <p>
+                If you would like to request a different license for your data, please provide the name of the license, a reference to the details of that license and a reason for the request. This request will be forwarded to the NM EPSCoR State Office for approval or further discussion.
+            </p>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/Q-Tg7u81wjk" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div class="row001">
+
+        <strong>Do you want a different license for your data?</strong><br />
+        <input id="Radio1" type="radio" value="Y" name="LicenseYN" ng-model="vm.differentlicense" />Yes
+            <input id="Radio2" type="radio" value="N" name="LicenseYN" ng-model="vm.differentlicense" />No
+            <div class="row001"></div>
+
+        <div ng-show="vm.differentlicense=='Y'">
+
+            <div class="row001">
+                <label>
+                    License Name<span class="requiredRed">&nbsp;*</span>
+                </label><br />
+                <input id="txtLicenseName" name="txtLicenseName" type="text" class="form-control" alue="" size="50" ng-model="vm.licensename" ng-maxlength="50" ng-required="vm.differentlicense === 'Y'"><br>
+                <div class="validationError" ng-show="masterForm.txtLicenseName.$invalid && masterForm.txtLicenseName.$dirty && !masterForm.txtLicenseName.$error.maxlength">License name is required</div>
+                <div class="validationError" ng-show="masterForm.txtLicenseName.$error.maxlength">50 characters max</div>
+            </div>
+
+            <div class="row001">
+                <label>License Reference (Website URL)<span class="requiredRed">&nbsp;*</span></label>
+                <br />
+                <input name="txtLicenseReference" type="text" class="form-control" id="txtLicenseReference" value="" size="75" ng-model="vm.licensereference" ng-maxlength="50">
+                <div class="validationError" ng-show="masterForm.txtLicenseReference.$error.maxlength">50 characters max</div>
+            </div>
+
+            <div class="row001">
+                <label>Reason For Request<span class="requiredRed">&nbsp;*</span></label>
+                <br />
+                <textarea id="txtLicenseReason" name="txtLicenseReason" cols="80%" rows="3" class="form-control" ng-model="vm.licensereason" ng-required="vm.differentlicense === 'Y'"></textarea>
+                <div class="validationError" ng-show="masterForm.txtLicenseReason.$invalid && (masterForm.txtLicenseReason.$dirty || vm.submitted===true)">Reason is required</div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+
+</div>
+
+<div ng-show="vm.differentlicense">
+    <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page10')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('11','Quit',!masterForm.$invalid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('11','Next',!masterForm.$invalid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+</div>
+</div>

@@ -1,0 +1,45 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 3 of 12: Abstract, Purpose & Additional Information</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+        `   <div class="subtitle">Enter your abstract and purpose below. You can also enter any additional information that may be helpful for other researchers looking at your data.  Usually 3 to 4 sentences will be sufficient.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/rrr-6I8fiRg" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtAbstract.$invalid && masterForm.txtAbstract.$dirty}">
+        <div class="groupHeader">
+            <label for="txtAbstract"><strong>Abstract</strong><span class="requiredRed">&nbsp;*</span></label>
+        </div>
+        <br />
+        <textarea id="txtAbstract" name="txtAbstract" cols="60" rows="10" id="abstract" ng-model="vm.abstract" required></textarea>
+        <div class="validationError" ng-show="masterForm.txtAbstract.$invalid && (masterForm.txtAbstract.$dirty || vm.submitted===true)">Abstract is required</div>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtPurpose.$invalid && masterForm.txtPurpose.$dirty}">
+        <div class="groupHeader">
+            <label for="txtPurpose"><strong>Purpose</strong><span class="requiredRed">&nbsp;*</span></label>
+        </div>
+        <br />
+        <textarea id="txtPurpose" name="txtPurpose" cols="60" rows="10" id="purpose" ng-model="vm.purpose" required></textarea>
+        <div class="validationError" ng-show="masterForm.txtPurpose.$invalid && (masterForm.txtPurpose.$dirty || vm.submitted===true)">Purpose is required</div>
+    </div>
+
+    <div class="row001">
+        <div class="groupHeader">
+            <label for="txtOtherInfo"><strong>Any Additional Information</strong></label>
+        </div>
+        <br />
+        <textarea id="txtOtherInfo" name="txtOtherInfo" cols="60" rows="10" id="other" ng-model="vm.otherinfo" ></textarea>
+    </div>
+    <hr />
+    <div>
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page02')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('03','Quit',masterForm.$valid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('03','Next',masterForm.$valid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+</div>

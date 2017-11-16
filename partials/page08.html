@@ -1,0 +1,69 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 8 of 12: Field Information</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <div class="subtitle">Enter any field data collection information below.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/ccA4HXzPaFw" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+<div ng-repeat="item in vm.processes">
+       {{item.dateperformed.substring(0,item.dateperformed.indexOf(' '))}}&nbsp;{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;{{item.description.substring(0,50)}}
+    </div>
+    <hr />
+    <!--
+    <div class="row001" >
+        <p>
+            Would you like to add processing steps for your data set?<br />
+                <input id="Radio1" type="radio" value="Y" name="ProcessingDataYN" ng-model="vm.processingyn" checked/>Yes
+                <input id="Radio2" type="radio" value="N" name="ProcessingDataYN" ng-model="vm.processingyn" />No
+        </p>
+
+    </div>
+    -->
+        <!-- Info for YES -->
+        <div class="row001">
+         <label for="txtDatePerformed">Date Performed:</label>
+         <md-content style="overflow: hidden;">
+           <md-datepicker type="text" placeholder="mm/dd/yyyy" name="txtdateperformed" id="txtdateperformed" value="" ng-model="vm.dateperformed" required></md-datepicker>
+         </md-content>
+         <span class="validationError" ng-show="masterForm.txtdateperformed.$invalid && (masterForm.txtdateperformed.$dirty || vm.submitted===true)">Date is required</span>{{vm.dateerrormessage}}</div>
+        <div class="row001">
+         <label for="txtDatePerformed">Individual who performed this step:</label><br />
+         <input type="text" name="txtFirstName" id="txtFirstName" value="" placeholder="first name" ng-model="vm.firstname" required>&nbsp;
+          <span class="validationError" ng-show="masterForm.txtFirstName.$invalid && (masterForm.txtFirstName.$dirty || vm.submitted===true)">Firstname is required</span>
+        <input type="text" name="txtLastName" id="txtLastName" value="" placeholder="last name" ng-model="vm.lastname" required>
+          <span class="validationError" ng-show="masterForm.txtLastName.$invalid && (masterForm.txtLastName.$dirty || vm.submitted===true)">Lastname is required</span>
+       </div>
+        <div class="row001">
+         <label for="txtStepDescription">Step Description:</label><br />
+            <textarea name="txtStepDescription" cols="80%" rows="3" id="txtStepDescription" ng-model="vm.stepdescription" required></textarea>
+          <span class="validationError" ng-show="masterForm.txtStepDescription.$invalid && (masterForm.txtStepDescription.$dirty || vm.submitted===true)">Description is required</span>
+        </div>
+        <div>
+         <input class="btn btn-default" id="btnSaveStep" type="button" value="Save" ng-click="vm.savePageData('07','Next',!masterForm.$invalid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input class="btn btn-default" id="btnSaveStepAndAddAnother" type="button" value="Save & Add Another" ng-click="vm.savePageData('07','Again',!masterForm.$invalid)" />
+
+        </div>
+        <br />
+    <hr />
+    <div>
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page07')" />&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-click="vm.savePageData('08','Quit',!masterForm.$invalid)" />&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-click="vm.savePageData('08','Next',!masterForm.$invalid)" />&nbsp;&nbsp;
+        <!--<input id="btnSaveAndAddAnother" type="button" value="Save & Add Another" ng-click="vm.savePageData('07','Again')" />--> <span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+    <!--
+    <hr />
+    the form {{masterForm.$invalid}}<br />
+    the shek {{vm.theformisempty()}}<br />
+    the calc {{vm.dateperformed}}<br />
+    the calc {{vm.firstname}}<br />
+    the calc {{vm.lastname}}<br />
+    the calc {{vm.stepdescription}}<br />
+    -->
+</div>

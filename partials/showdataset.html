@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-6"><h4>Your Research Data</h4></div>
+    <div class="col-md-6"><h4 class="pull-right">Welcome {{dsc.theuserfirstname}} {{dsc.theuserlastname}}</h4></div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-default btn-block" value="Add New Data Set" ng-click="dsc.addnewdataset()" />
+    </div>
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-default btn-block" value="Clone Data Set" ng-click="dsc.clonedataset()" ng-show="dsc.existingdatasets>0" />
+    </div>
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-default btn-block" value="Home" ng-click="dsc.goHome()" />
+    </div>
+</div>
+<br />
+
+<div>
+    Email files to EPSCoR.Files@edac.unm.edu<br />
+
+    <div class="collection001">
+
+        <strong><a id="{{dsc.colltitle}}">Collection:{{dsc.colltitle}}</a></strong>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="titleLeft">Title</th>
+                    <th>Status</th>
+                    <th>Step</th>
+                    <th>Edit/View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="ds in dsc.dsetz | itemsPerPage: 10">
+                    <td>{{ds.datasettitle}}{{dsc.datasetid}}</td>
+                    <td>{{ds.status}}</td>
+                    <td>{{ds.step}}<span ng-show="ds.step != null">&nbsp;of&nbsp;12</span></td>
+                    <td><a href="" ng-click="dsc.viewedit(ds.datasetid,ds.statusid)">View/Edit</a></td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <div class="text-center">
+                            <dir-pagination-controls></dir-pagination-controls>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

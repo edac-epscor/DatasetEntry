@@ -1,0 +1,61 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 4 of 12: Keywords &amp; Place Names</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <div class="subtitle">Enter at least one keyword and Place Name for your data set. Think in terms of how people would search for your data set. For place names put the field location where the data was collected or the lab location where the data was created.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/5zTa97VhLks" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div class="row001">
+        <strong><span>Keywords</span></strong><span class="requiredRed">&nbsp;*</span><br />
+        <input type="text" id="txtAddKeyword" value="" size="30" ng-model="vm.keywordBeingAdded" />&nbsp;
+        <input class="btn btn-default" id="btnAddKeyword" type="button" value="Add" ng-click="vm.addKeyword()" /><br />
+        <select id="dsKeywords"
+            name="dsKeywords"
+            class="boxAdd"
+            ng-model="vm.keywordSelected"
+            ng-options="itm.kw for itm in vm.keywords" size="4">
+        </select>
+        <input class="btn btn-default" id="btnRemove" type="button" value="Remove" ng-click="vm.removeKeyword()" />
+        <div class="validationError" ng-show="(vm.showKeyWordRequiredMessage === true)">At least one word is required</div>
+
+    </div>
+    <div class="row001">
+        <strong><span>Place Names</span></strong><span class="requiredRed">&nbsp;*</span><br />
+        <input type="text" id="txtAddPlace" value="" size="30" ng-model="vm.placeBeingAdded" />
+        <input class="btn btn-default" id="btnAddPlace" type="button" value="Add" ng-click="vm.addPlace()" /><br />
+        <select id="dsPlaces" class="boxAdd" name="dsPlaces" ng-model="vm.placeSelected" ng-options="itm.pname for itm in vm.places" size="4">
+        </select>
+        <input class="btn btn-default" id="btnRemovePlace" type="button" value="Remove" ng-click="vm.removePlace()" />
+        <div class="validationError" ng-show="(vm.showPlacenameRequiredMessage === true)">At least one placename is required</div>
+    </div>
+    <div class="row001">
+        <div class="groupHeader">
+            <label for="theISOTopic"><strong>ISO Topic Category</strong><span class="requiredRed">&nbsp;*</span></label>
+        </div>
+    <br />
+        <select id="theISOTopic"
+            name="theISOTopic"
+            ng-model="vm.isotopic"
+            ng-options="itm.categoryname for itm in vm.isotopics"
+            required>
+            <option value="">Select one</option>
+        </select>
+        <span class="validationError" ng-show="(vm.showISOCategoryRequiredMessage === true)">ISO Topic Category is required</span>
+
+    </div>
+
+</div>
+
+    <hr />
+    <div>
+    <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page03')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndQuit" name="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="vm.keywords.length===0" ng-click="vm.savePageData('04','Quit')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndNext" name="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="vm.keywords.length===0" ng-click="vm.savePageData('04','Next')" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+</div>

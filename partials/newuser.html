@@ -1,0 +1,106 @@
+﻿<h2>Create New User</h2>
+<div class="form-group" ng-class="{'validationError': masterForm.newUsername.$invalid && masterForm.newUserName.$dirty}">
+    <div class="rowTitle">
+        <label for="newUsername">Username</label>
+    </div>
+    <input id="newUsername" name="newUsername" type="text" placeholder="Username (6 char min)" ng-minlength="6"  ng-model="vm.newUsername" required />
+    <span class="validationError" ng-show="masterForm.newUsername.$error.required && (masterForm.newUsername.$dirty || vm.submitted===true)">Username is required</span>
+    <span class="validationError" ng-show="masterForm.newUsername.$error.minlength && (masterForm.newUsername.$dirty || vm.submitted===true)">6 characters min</span>
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newPassword.$invalid && masterForm.newPassword.$dirty}">
+    <div class="rowTitle">
+        <label for="newPassword">Password</label>
+    </div>
+    <input id="newPassword" name="newPassword" type="text" placeholder="Password (6 char min)" ng-minlength="6" ng-model="vm.password" required />
+    <span class="validationError" ng-show="masterForm.newPassword.$error.required && (masterForm.newPassword.$dirty || vm.submitted===true)">Password is required</span>
+    <span class="validationError" ng-show="masterForm.newPassword.$error.minlength && (masterForm.newPassword.$dirty || vm.submitted===true)">6 characters min</span>
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newFirstName.$invalid && masterForm.newFirstName.$dirty}">
+    <div class="rowTitle">
+        <label for="newFirstName">Firstname</label>
+    </div>
+    <input id="newFirstName" name="newFirstName" type="text" placeholder="Firstname (required)" ng-model="vm.newFirstName" required />
+    <span class="validationError" ng-show="masterForm.newFirstName.$invalid && (masterForm.newFirstName.$dirty || vm.submitted===true)">Firstname is required</span>
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newLastName.$invalid && masterForm.newLastName.$dirty}">
+    <div class="rowTitle">
+        <label for="newLastName">Lastname</label>
+    </div>
+    <input id="newLastName" name="newLastName" type="text" placeholder="Lastname (required)" ng-model="vm.newLastName" required />
+    <span class="validationError" ng-show="masterForm.newLastName.$invalid && (masterForm.newLastName.$dirty || vm.submitted===true)">Lastname is required</span>
+</div>
+
+<div class="form-group" ng-class="{'validationError': masterForm.newEmail.$invalid && masterForm.newEmail.$dirty}">
+
+        <div class="rowTitle">
+            <label for="newEmail">Email</label>
+        </div>
+        <input type="email" name="newEmail" id="newEmail" value="" ng-model="vm.newEmail" placeholder="Email (required)" required>
+        <span ng-show="(masterForm.newEmail.$dirty || vm.submitted===true)">
+            <span ng-messages="masterForm.newEmail.$error">
+                <span class="validationError" ng-message="required">email is required</span>
+                <span class="validationError" ng-message="email">invalid email address</span>
+            </span>
+        </span>
+
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newPhone.$invalid && masterForm.newPhone.$dirty}">
+    <div class="rowTitle">
+        <label for="newPhone">Phone</label>
+    </div>
+    <input id="newPhone" name="newPhone" type="text" placeholder="Phone (required)" ng-model="vm.newPhone" required />
+    <span class="validationError" ng-show="masterForm.newPhone.$invalid && (masterForm.newPhone.$dirty || vm.submitted===true)">Phone is required</span>
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newInstitutionName.$invalid && masterForm.newInstitutionName.$dirty}">
+    <div class="rowTitle">
+      <label for="newInstitutionName">Institution</label>
+    </div>
+    <input id="newInstitutionName" name="newInstitutionName" type="text" placeholder="InstitutionName (required)" ng-model="vm.newInstitutionName" required />
+    <span class="validationError" ng-show="masterForm.newInstitutionName.$invalid && (masterForm.newInstitutionName.$dirty || vm.submitted===true)">Institution Name is required</span>
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newAddress.$invalid && masterForm.newAddress.$dirty}">
+    <div class="rowTitle">
+        <label for="newAddress">Address</label>
+    </div>
+    <input id="newAddress" name="newAddress" type="text" placeholder="Address (required)" ng-model="vm.newAddress" required />
+    <span class="validationError" ng-show="masterForm.newAddress.$invalid && (masterForm.newAddress.$dirty || vm.submitted===true)">Address is required</span>
+</div>
+<div class="form-group">
+    <div class="rowTitle">
+        <label for="newAddress2">Address 2</label>
+    </div>
+    <input id="newAddress2" name="newAddress2" type="text" placeholder="Address2" ng-model="vm.newAddress2" />
+</div>
+<div class="form-group" ng-class="{'validationError': masterForm.newCity.$invalid && masterForm.newCity.$dirty}">
+    <div class="rowTitle">
+        <label for="newCity">City</label>
+    </div>
+    <input id="newCity" name="newCity" type="text" placeholder="City (required)" ng-model="vm.newCity" required />
+    <span class="validationError" ng-show="masterForm.newCity.$invalid && (masterForm.newCity.$dirty || vm.submitted===true)">City is required</span>
+</div>
+
+<div class="form-group" ng-class="{'validationError': masterForm.newState.$invalid && masterForm.newState.$dirty}">
+    <div class="rowTitle">
+        <label for="newState">State</label>
+    </div>
+    <input id="newState" name="newState" type="text" placeholder="State (required)" ng-model="vm.newState" required />
+    <span class="validationError" ng-show="masterForm.newState.$invalid && (masterForm.newState.$dirty || vm.submitted===true)">State is required</span>
+</div>
+
+<div class="form-group" ng-class="{'validationError': masterForm.newZip.$invalid && masterForm.newZip.$dirty}">
+    <div class="rowTitle">
+        <label for="newZip">Zip</label>
+    </div>
+    <input id="newZip" name="newZip" type="text" placeholder="Zip (required)" ng-model="vm.newZip" required />
+    <span class="validationError" ng-show="masterForm.newZip.$invalid && (masterForm.newZip.$dirty || vm.submitted===true)">Zip is required</span>
+</div>
+
+<div>
+    <input class="btn btn-primary" id="create" type="submit" value="Create" ng-click="vm.newUserCreate(masterForm.$valid)" />
+    <input class="btn btn-primary" id="cancel" type="submit" value="Cancel" ng-click="vm.newUserCancel()" /><span class="validationError">{{vm.newusererror}}</span>
+</div>
+
+
+
+
+

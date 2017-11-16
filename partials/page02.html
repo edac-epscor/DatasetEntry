@@ -1,0 +1,113 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 2 of 12: Research Information</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <div class="subtitle">Enter your information below and either the PI or person in charge of this research project.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/x45z-b2wRZ8" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+   <p><strong><span>Your Information</span></strong></p>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtFirstName.$invalid && masterForm.txtFirstName.$dirty}">
+        <div class="rowTitle">
+            <label for="txtFirstName">First Name</label>
+        </div>
+        <input type="text" name="txtFirstName" id="txtFirstName" value="" ng-model="vm.firstname" ng-maxlength="20" required>
+        <span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtFirstName.$invalid && masterForm.txtFirstName.$dirty && !masterForm.txtFirstName.$error.maxlength">First name is required</span>
+        <span class="validationError" ng-show="masterForm.txtFirstName.$error.maxlength">20 characters max</span>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtLastName.$invalid && masterForm.txtLastName.$dirty}">
+        <div class="rowTitle">
+            <label for="txtLastName">Last Name</label>
+        </div>
+        <input type="text" name="txtLastName" id="txtLastName" value="" ng-model="vm.lastname" ng-maxlength="20" required>
+        <span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtLastName.$invalid && masterForm.txtLastName.$dirty && !masterForm.txtLastName.$error.maxlength">Last name is required</span>
+        <span class="validationError" ng-show="masterForm.txtLastName.$error.maxlength">20 characters max</span>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtEmail.$invalid && masterForm.txtEmail.$dirty}">
+        <div class="rowTitle">
+            <label for="txtEmail">Email</label>
+        </div>
+        <input type="email" name="txtEmail" id="txtEmail" value="" ng-model="vm.email" ng-maxlength="50" required>
+        <span class="requiredRed">*</span>
+        <span ng-show="(masterForm.txtEmail.$dirty || vm.submitted===true)">
+            <span ng-messages="masterForm.txtEmail.$error">
+                <span class="validationError" ng-message="required">Email is required</span>
+                <span class="validationError" ng-message="email">Invalid email address</span>
+                <span class="validationError" ng-message="maxlength">50 characters max</span>
+            </span>
+        </span>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtPhone.$invalid && masterForm.txtPhone.$dirty}">
+        <div class="rowTitle">
+            <label for="txtPhone">Phone</label>
+        </div>
+        <input type="text" name="txtPhone" id="txtPhone" value="" ng-model="vm.phone" ng-maxlength="50" required>
+        <span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtPhone.$invalid && masterForm.txtPhone.$dirty && !masterForm.txtPhone.$error.maxlength">Phone is required</span>
+        <span class="validationError" ng-show="masterForm.txtPhone.$error.maxlength">50 characters max</span>
+    </div>
+
+    <hr />
+
+    <p><strong><span>PI or Advisor or Supervisor Information</span></strong></p>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtFirstName2.$invalid && masterForm.txtFirstName2.$dirty}">
+        <div class="rowTitle">
+            <label for="txtFirstName2">First Name</label>
+        </div>
+        <input type="text" name="txtFirstName2" id="Text1" value="" ng-model="vm.firstnamepi" ng-maxlength="20" required>
+        <span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtFirstName2.$invalid && masterForm.txtFirstName2.$dirty && !masterForm.txtFirstName2.$error.maxlength">First name is required</span>
+        <span class="validationError" ng-show="masterForm.txtFirstName2.$error.maxlength">20 characters max.</span>
+    </div>
+    <div class="row001" ng-class="{'validationError': masterForm.txtLastName2.$invalid && masterForm.txtLastName2.$dirty}">
+        <div class="rowTitle">
+            <label for="txtLastName2">Last Name</label>
+        </div>
+        <input type="text" name="txtLastName2" id="txtFirstName2" value="" ng-model="vm.lastnamepi" ng-maxlength="20" required>
+        <span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtLastName2.$invalid && masterForm.txtLastName2.$dirty && !masterForm.txtLastName2.$error.maxlength">Last name is required</span>
+        <span class="validationError" ng-show="masterForm.txtLastName2.$error.maxlength">20 characters max.</span>
+    </div>
+    <div class="row001" ng-class="{'validationError': masterForm.txtEmail2.$invalid && masterForm.txtEmail2.$dirty}">
+        <div class="rowTitle">
+            <label for="txtEmail2">Email</label>
+        </div>
+        <input type="email" name="txtEmail2" id="txtEmail2" value="" ng-model="vm.emailpi" ng-maxlength="50" required>
+        <span class="requiredRed">*</span>
+        <span ng-show="(masterForm.txtEmail2.$dirty || vm.submitted===true)">
+            <span ng-messages="masterForm.txtEmail2.$error">
+                <span class="validationError" ng-message="required">Email is required</span>
+                <span class="validationError" ng-message="email">Invalid email address</span>
+                <span class="validationError" ng-message="maxlength">50 characters max</span>
+            </span>
+        </span>
+
+    </div>
+    <div class="row001" ng-class="{'validationError': masterForm.txtPhone2.$invalid && masterForm.txtPhone2.$dirty}">
+        <div class="rowTitle">
+            <label for="txtPhone2">Phone</label>
+        </div>
+        <input type="text" name="txtPhone2" id="txtPhone2" value="" ng-model="vm.phonepi" ng-maxlength="50" required>
+        <span class="validationError" ng-show="masterForm.txtPhone2.$invalid && masterForm.txtPhon2.$dirty && !masterForm.txtPhone2.$error.maxlength">Phone is required</span><span class="requiredRed">*</span>
+        <span class="validationError" ng-show="masterForm.txtPhone2.$error.maxlength">50 characters max</span>
+    </div>
+    <hr />
+    <div>
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page01')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('02','Quit',masterForm.$valid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('02','Next',masterForm.$valid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+
+</div>

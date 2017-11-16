@@ -1,0 +1,24 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 10 of 12: Data.ONE Status</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <p>
+                Select <strong>Yes</strong> to share your data across a broad community of users and get credit for your research.<br />
+                Learn more about DataONE at <a href='https://www.dataone.org/' target='_blank'>www.dataone.org</a><br /><br />
+                    <input id="Radio1" type="radio" value="Yes" name="dataOne" ng-model="vm.YesorNo" />Yes
+                    <input id="Radio2" type="radio" value="No" name="dataOne" ng-model="vm.YesorNo" />No
+            </p>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/7VmeXq__BKQ" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div>
+    <hr />
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page09')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-click="vm.savePageData('10','Quit')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-click="vm.savePageData('10','Next')" /><span class="errorRed">{{vm.saveerrors}}</span>
+</div>
+</div>

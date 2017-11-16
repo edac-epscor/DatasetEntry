@@ -1,0 +1,115 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 12 of 12: Dataset Entry Successful</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <p>
+                The below Dataset was entered successfully
+            </p>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/duhs9UVjdaU" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div class="tableless-form-right02">
+    <div class="floatleft">
+        <input class="btn btn-default" id="btnCloseTop" type="button" value="Close & Return to Home Page" ng-click="vm.closeToHome()" />
+    </div>
+        <span ng-show="vm.finalData.status==1">
+           <input class="btn btn-default" id="btnSubmitForApprovalTop" type="button" value="Submit for approval" ng-click="vm.submitApproval()" />
+        </span>
+        <span ng-show="vm.finalData.status==3">
+           <input class="btn btn-default" id="btnCertifyTop" type="button" value="Certify" ng-click="vm.certify()" />
+        </span>
+        <br />
+        {{vm.message}}
+ </div>
+ <br />
+    <div>
+        <p>
+            <strong>Collection:</strong>&nbsp;{{vm.finalData.collectiontitle}}
+        </p>
+        <p>
+            <strong>Dataset Name:</strong>&nbsp;{{vm.finalData.datasetname}}
+        </p>
+        <p>
+            <strong>Category:</strong>&nbsp;{{vm.finalData.categorytitle}}
+        </p>
+        <p>
+            <strong>Institution:</strong>&nbsp;{{vm.finalData.institutionname}}
+        </p>
+        <p>
+            <strong>Your Information:</strong><br />
+            {{vm.finalData.firstname}}<br />
+            {{vm.finalData.lastname}}<br />
+            {{vm.finalData.email}}<br />
+            {{vm.finalData.phone}}<br />
+        </p>
+        <p>
+            <strong>PI Information:</strong><br />
+            {{vm.finalData.firstnamepi}}<br />
+            {{vm.finalData.lastnamepi}}<br />
+            {{vm.finalData.emailpi}}<br />
+            {{vm.finalData.phonepi}}<br />
+        </p>
+
+        <p>
+            <strong>Abstract:</strong>&nbsp;{{vm.finalData.abstract}}
+        </p>
+        <p>
+            <strong>Purpose:</strong>&nbsp;{{vm.finalData.purpose}}
+        </p>
+        <p>
+            <strong>Other Info:</strong>&nbsp;{{vm.finalData.otherinfo}}
+        </p>
+        <p>
+            <strong>Keywords:</strong>&nbsp;{{vm.finalData.keywords}}
+        </p>
+        <p>
+            <strong>Placenames:</strong>&nbsp;{{vm.finalData.placenames}}
+        </p>
+        <p>
+            <strong>ISO Topic:</strong>&nbsp;{{vm.finalData.isocategoryname}}
+        </p>
+        <p>
+            <strong>File Delivery:</strong>&nbsp;{{vm.finalData.deliverymethod}}
+        </p>
+
+        <p>
+            <strong>Upload to Data.One:</strong>&nbsp;{{vm.finalData.uploadtodataone}}
+        </p>
+        <p>
+            <strong>File Name:</strong>&nbsp;{{vm.finalData.filename}}
+        </p>
+        <p>
+            <strong>File type:</strong>&nbsp;{{vm.finalData.filetype}}
+        </p>
+        <p>
+            <strong>File Description:</strong>&nbsp;{{vm.finalData.filedescription}}
+        </p>
+        <p>
+            <strong>License Name:</strong>&nbsp;{{vm.finalData.licensename}}
+        </p>
+        <p>
+            <strong>License Reference:</strong>&nbsp;{{vm.finalData.licensereference}}
+        </p>
+        <p>
+            <strong>License Reason:</strong>&nbsp;{{vm.finalData.licensereason}}
+        </p>
+    </div>
+
+    <div class="tableless-form-right02">
+    <div class="floatleft">
+        <input class="btn btn-default" id="btnCloseBottom" type="button" value="Close & Return to Home Page" ng-click="vm.closeToHome()" />
+    </div>
+
+        <span ng-show="vm.finalData.status==1">
+          <input class="btn btn-default" id="btnSubmitForApprovalBottom" type="button" value="Submit for approval" ng-click="vm.submitApproval()" />
+        </span>
+        <span ng-show="vm.finalData.status==3">
+            <input class="btn btn-default" id="btnCertifyBottom" type="button" value="Certify" ng-click="vm.certify()" />
+        </span>
+    </div>
+
+</div>

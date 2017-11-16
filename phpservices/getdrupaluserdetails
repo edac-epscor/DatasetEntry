@@ -1,0 +1,7 @@
+<?php 
+/* Created 5/04/2015 */
+  //echo $GLOBALS['user']->name.'|'.$GLOBALS['user']->uid 
+$array = array("name"=>"jdoe");
+       echo json_encode($array);
+
+?>

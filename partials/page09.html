@@ -1,0 +1,56 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 9 of 12: Embargo Information&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <p>
+                The NM EPSCoR Data Policy provides for a data publication embargo period of up to one year from data collection.<br />
+                <a href='http://www.nmepscor.org/cyberinfrastructure/data-policy' target='_blank'>Please refer to the data policy for more information.</a>
+            </p>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/Y2kh0DMxxr4" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div>
+        <p>
+            <strong>Do you want this data set to have a 1 year embargo</strong><br />
+                <input id="Radio1" type="radio" value="Y" name="EmbargoYN" ng-model="vm.embargoyn" />Yes
+                <input id="Radio2" type="radio" value="N" name="EmbargoYN" ng-model="vm.embargoyn" />No
+        </p>
+    </div>
+
+
+    <div ng-show="vm.embargoyn=='Y'">
+        <!-- Info for YES -->
+        <div>
+            <strong>If you would like to request a longer embargo, please provide a detailed reason for the request and the expected embargo release date.</strong> This request will be forwarded to the NM EPSCoR State Office for approval and/or further discussion.
+        </div>
+        <div class="row001"></div>
+        <div class="row001">
+         <label for="txtEmbargoReason">Reason For Request<span class="requiredRed">&nbsp;*</span></label>
+         <br />
+            <textarea name="txtLicenseReason" cols="80%" rows="3" id="txtLicenseReason" ng-model="vm.embargoreason" required></textarea>
+         <div class="validationError" ng-show="masterForm.txtLicenseReason.$invalid && (masterForm.txtLicenseReason.$dirty || vm.submitted===true)">Reason is required</div>
+        </div>
+
+        <div class="row001">
+         <label for="txtEmbargoReleaseDate">Expected Embargo Release Date<span class="requiredRed">&nbsp;*</span></label>
+         <br />
+         <input type="text" name="txtEmbargoReleaseDate" id="txtEmbargoReleaseDate" value="" ng-model="vm.embargoreleasedate" placeholder="mm/dd/yyyy" required><span class="validationError">{{vm.dateerrormessage}}</span><br>
+         <div class="validationError" ng-show="masterForm.txtEmbargoReleaseDate.$invalid && (masterForm.txtEmbargoReleaseDate.$dirty || vm.submitted===true)">Date is required</div>
+        </div>
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+        <br />
+    </div>
+    <hr />
+    <div ng-show="vm.embargoyn">
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page08')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid && vm.embargoyn=='Y'" ng-click="vm.savePageData('09','Quit')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid && vm.embargoyn=='Y'" ng-click="vm.savePageData('09','Next')" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+</div>

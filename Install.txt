@@ -1,0 +1,5 @@
+Create a database in mysql named DatasetEntryForm
+Run DatasetEntryForm.sql for the newley created database.
+Modyify phpservices/dbConnectPDO.php with the username and password for the new DatasetEntryForm database.
+
+

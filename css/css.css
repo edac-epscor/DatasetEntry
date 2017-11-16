@@ -1,0 +1,271 @@
+/*Global*/
+
+body
+{
+  font-family: 'Arial', Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  overflow-y: scroll;
+}
+
+.subtitle {
+ padding: 0px 0px 15px 0px;
+}
+
+.loadericonxxxxx {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 100;
+}
+
+.loadergif {
+  position: absolute;
+  width: 70px;
+  top: 70px;
+  left: 150px;
+  z-index: 100;
+}
+
+.questionMark
+{
+  position: relative;
+  top: 5px;
+}
+
+.modalinstructions {
+  width: 150px;
+  height: 100px;
+  margin-left: -100px
+}
+
+.titleLeft
+{
+  text-align:left;
+}
+
+.container001
+{
+  margin-left: 200px;
+}
+
+.row001
+{
+  padding-bottom: 10px;
+  color: #000;
+}
+
+.tableless-form-right02 {
+	display: block;
+}
+
+.floatleft {
+	float: left;
+	padding-right: 5px;
+}
+
+.row002
+{
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.rowTitle
+{
+  width: 100px;
+  float: left;
+}
+.groupHeader
+{
+  width: 80%;
+  float: left;
+}
+.boxAdd
+{
+  width: 212px;
+}
+
+
+.collection001
+{
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+{
+  display: none !important;
+}
+
+.requiredRed
+{
+  color: #FF0000;
+}
+
+.errorRed
+{
+  color: #FF0000;
+}
+.validationError
+{
+  color: #a94442;
+}
+.referenceOnly
+{
+  background-color: bisque;
+  padding: 5px;
+  margin: 5px;
+  display: none;
+}
+
+.view-animate-container
+{
+  position: relative;
+  background: white;
+  /*border:1px solid black;*/
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.view-animate
+{
+  padding: 10px;
+}
+
+  .view-animate.ng-enter
+  {
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    display: block;
+    width: 100%;
+    border-left: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    opacity: 0;
+  }
+
+    .view-animate.ng-enter.ng-enter-active
+    {
+      opacity: 1;
+    }
+
+  .view-animate.ng-leave.ng-leave-active
+  {
+    opacity: 0;
+  }
+
+  /* MODAL POPUP CSS when clicking on the question mark */
+  /* A dark translucent div that covers the whole screen */
+  .ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#A1A09D;
+  opacity: 0.7;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Position the dialog */
+  top: 45%;
+  left: 45%;
+  transform: translate(-80%, -65%);
+  -webkit-transform: translate(-80%, -65%);
+  -moz-transform: translate(-80%, -65%);
+
+  background-color:#fff;
+  box-shadow: 3px 3px 15px #666;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
+.registration_formfield_row02 {
+	padding-bottom: 15px;
+	color: #000;
+}
+
+.tableless-formm-left {
+	float: left;
+	padding-right: 5px;
+	width: 100px;
+}
+.tableless-form-right {
+	display: inline-block;
+}
+.md-datepicker-calendar-pane {
+  width: 345px;
+}
+.md-datepicker-input-container {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: rgba(0,0,0,0.6);
+}
+.md-datepicker-triangle-button .md-datepicker-expand-triangle {
+  border-top-color: black;
+}
+
+
+#chartLegend {
+    list-style-type: none;
+}
+#chartLegend li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: square;
+    font-size: 60px;
+    vertical-align: middle;
+}
+#chartLegend li:first-child { color: #97BBCD; }
+#chartLegend li:nth-child(2) { color: #DCDCDC; }
+#chartLegend li:nth-child(3) { color: #F7464A; }
+#chartLegend li:nth-child(4) { color: #46BFBD; }
+#chartLegend li:nth-child(5) { color: #FDB45C; }
+#chartLegend li:nth-child(6) { color: #949FB1; }
+#chartLegend li:nth-child(7) { color: #4D5360; }
+#chartLegend li span {
+    vertical-align: middle;
+    color: black;
+    font-size: 20px;
+}
+
+table#rejectedTable.table.table-bordered {
+    border: 1px solid red;
+}
+table#rejectedTable.table.table-bordered > tbody > tr > td {
+    border: 1px solid red;
+}
+table#rejectedTable.table-bordered > thead > tr > th{
+    border: 1px solid red;
+}
+#redText{
+    color: red;
+}

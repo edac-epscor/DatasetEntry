@@ -1,0 +1,65 @@
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Step 5 of 12: File Details</strong>&nbsp;<div style="display:none"><img ng-click="vm.toggleModal()" src="{{ac.qmarkpath}}/icon-question.GIF" class="questionMark" alt="qmark" />
+            </div>
+            <div class="subtitle">Enter details on the type of file and its description below.
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a target="_blank" href="https://youtu.be/VAt9ptR7NH8" class="btn btn-default" style="text-decoration: none;">Video</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Tabular Data</strong>
+            <div class="subtitle">Is your file type one of the following: .csv, .xls, .xlsx?<span class="requiredRed">&nbsp;*</span></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <div class="btn-group">
+                <label class="btn btn-default" ng-model="vm.newistabular" uib-btn-radio="true" required>Yes</label>
+                <label class="btn btn-default" ng-model="vm.newistabular" uib-btn-radio="false" required>No</label>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.newistabular === true">
+        <div class="col-md-4">
+            <strong>Workbook</strong>
+            <div class="subtitle">Is your file a workbook?</div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.newistabular === true">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <div class="btn-group">
+                <label class="btn btn-default" ng-model="vm.isworkbook" uib-btn-radio="true" required>Yes</label>
+                <label class="btn btn-default" ng-model="vm.isworkbook" uib-btn-radio="false" required>No</label>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="rowTitle">
+                <label for="txtFileDescription">Description</label>
+            </div>
+            <textarea id="txtFileDescription" name="txtFileDescription" ng-model="vm.filedescription" required></textarea><span class="requiredRed">&nbsp;*</span>
+            <span class="validationError" ng-show="masterForm.txtFileDescription.$invalid && (masterForm.txtFileDescription.$dirty || vm.submitted===true)">
+                Description is required
+            </span>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('page04')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('05','Quit',!masterForm.$invalid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('05','Next',!masterForm.$invalid)" /><span class="errorRed">{{vm.saveerrors}}</span>
+    </div>
+
+</div>

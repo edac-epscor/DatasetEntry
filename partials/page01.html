@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-4">
+        <strong>Step 1 of 12: Data Set Information</strong>&nbsp;
+        <div class="subtitle">Enter the Data Set information below.  Data Set Name’s should be unique to your other data sets.
+        </div>
+    </div>
+    <div class="col-md-2">
+        <a target="_blank" href="https://youtu.be/xJReSM7jwcE" class="btn btn-default" style="text-decoration: none;">Video</a>
+    </div>
+</div>
+<div>
+    <div class="row001" ng-class="{'validationError': masterForm.theCollection.$invalid && masterForm.theCollection.$dirty}">
+        <div>
+            <label for="theCollection"><strong>Collections</strong></label>
+        </div>
+        <select class="col-md-2" id="theCollection"
+            name="theCollection"
+            ng-model="vm.collection"
+            ng-options="itm.collectiontitle for itm in vm.collections"
+            ng-selected="vm.collection"
+            required>
+            <option value="">-- choose collection --</option>
+        </select><span class="requiredRed">&nbsp;*</span>
+        <span class="validationError" ng-show="masterForm.theCollection.$invalid && (masterForm.theCollection.$dirty || vm.submitted===true)">Collection is required</span>
+        <br />
+    </div>
+    <div class="row001" ng-if="vm.collection.id=='-1'" ng-class="{'validationError': masterForm.txtnewcollection.$invalid && masterForm.txtnewcollection.$dirty}">
+        <input id="txtnewcollection" name="txtnewcollection" type="text" ng-model="vm.newcollection" ng-maxlength="50" ng-blur="vm.addnewcollection()" placeholder="Enter collection title" required /><span class="requiredRed">&nbsp;*</span>&nbsp;Change focus to save
+        <span class="errorRed">{{vm.addnewcollectionerror}}</span>
+        <span class="validationError" ng-show="masterForm.txtnewcollection.$error.maxlength">50 characters max</span>
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.txtdatasetname.$invalid && (masterForm.txtdatasetname.$dirty || vm.submitted===true)}">
+        <div>
+            <label for="txtdatasetname"><strong>Title of Data Set</strong></label>
+        </div>
+        <input id="txtdatasetname" name="txtdatasetname" type="text" ng-model="vm.datasetname" ng-maxlength="150" required /><span class="requiredRed">&nbsp;*</span>
+        <span class="validationError" ng-show="masterForm.txtdatasetname.$invalid && masterForm.txtdatasetname.$dirty && !masterForm.txtdatasetname.$error.maxlength">Dataset Name is required</span>
+        <span ng-show="masterForm.txtdatasetname.$error.maxlength">150 characters max</span>
+        <br />
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.theCategory.$invalid && (masterForm.theCategory.$dirty || vm.submitted===true)}">
+        <div>
+            <label for="theCategory"><strong>Category</strong></label>
+        </div>
+        <select id="theCategory"
+            name="theCategory"
+            ng-model="vm.category"
+            ng-options="itm.categorytitle for itm in vm.categories"
+            ng-selected="vm.subcategory"
+            required>
+            <option value="">-- choose category --</option>
+        </select><span class="requiredRed">&nbsp;*</span>
+        <span class="validationError" ng-show="masterForm.theCategory.$invalid && (masterForm.theCategory.$dirty || vm.submitted===true)">Category is required</span>
+        <br />
+    </div>
+
+    <div class="row001" ng-show="vm.category" ng-class="{'validationError': masterForm.theSubCategory.$invalid}">
+        <div>
+            <label for="theSubCategory"><strong>Sub-Category</strong></label>
+        </div>
+
+        <select id="theSubCategory"
+            name="theSubCategory"
+            ng-model="vm.subcategory"
+            ng-options="itm.subcategorytitle for itm in vm.subcategories | filter:{categoryid:vm.category.id}"
+            ng-selected="vm.subcategory"
+            required>
+            <option value="">-- choose sub-category --</option>
+        </select><span class="requiredRed">&nbsp;*</span>
+        <span class="validationError" ng-show="masterForm.theSubCategory.$invalid && (masterForm.theSubCategory.$dirty || vm.submitted===true)">Sub-Category is required</span>
+        <span ng-show="masterForm.theSubCategory.$error.required">Select service</span>
+        <br />
+    </div>
+
+    <div class="row001" ng-class="{'validationError': masterForm.theInstitution.$invalid && (masterForm.theInstitution.$dirty || vm.submitted===true)}">
+        <div class="groupHeader">
+            <label for="theInstitution"><strong>Institution</strong></label>
+        </div>
+        <br />
+        <select id="theInstitution"
+            name="theInstitution"
+            ng-model="vm.institution"
+            ng-options="itm.institutionname for itm in vm.institutions"
+            ng-selected="vm.institution"
+            required><span class="requiredRed">&nbsp;*</span>
+            <option value="">-- choose institution --</option>
+        </select><span class="requiredRed">&nbsp;*</span>
+        <span class="validationError" ng-show="masterForm.theInstitution.$invalid && (masterForm.theInstitution.$dirty || vm.submitted===true)">Institution is required</span>
+        <br />
+    </div>
+</div>
+<hr />
+<div>
+    <input class="btn btn-default" id="btnBack" type="button" value="Back" ng-click="vm.backButton('userloggedin')" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndQuit" type="button" value="Save & Quit" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('01','Exit',!masterForm.$invalid)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn btn-default" id="btnSaveAndNext" type="button" value="Save & Next" ng-disabled="masterForm.$invalid" ng-click="vm.savePageData('01','Next',!masterForm.$invalid)" />
+    <span class="errorRed">{{vm.saveerrors}}</span>
+</div>
