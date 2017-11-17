@@ -16,6 +16,7 @@
                 .when('/dispds', { templateUrl: drupalPath + "/partials/dispds.html", controllerAs: "dispds", controller: "displayDSController"})
                 .when('/clonedataset', { templateUrl: drupalPath + "/partials/clonedataset.html", controllerAs: "vm", controller: "cloneDatasetController", caseInsensitiveMatch: true })
                 .when('/showdataset', { templateUrl: drupalPath + "/partials/showdataset.html", controllerAs: "dsc", controller: "showDatasetController", caseInsensitiveMatch: true })
+		.when('/cookieid', { templateUrl: drupalPath + "/partials/cookieid.php", controllerAs: "vm", controller: "page01Controller", caseInsensitiveMatch: true })
                 .when('/page01', { templateUrl: drupalPath + "/partials/page01.html", controllerAs: "vm", controller: "page01Controller", caseInsensitiveMatch: true })
                 .when('/page02', { templateUrl: drupalPath + "/partials/page02.html", controllerAs: "vm", controller: "page02Controller", caseInsensitiveMatch: true })
                 .when('/page03', { templateUrl: drupalPath + "/partials/page03.html", controllerAs: "vm", controller: "page03Controller", caseInsensitiveMatch: true })
